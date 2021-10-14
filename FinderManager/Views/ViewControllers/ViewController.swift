@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 enum PresentationMode: String {
     case tableView
     case collectionView
@@ -32,7 +30,7 @@ class ViewController: UIViewController {
     private var modeButton: UIBarButtonItem?
     
     var url: URL?
-    var isEditMode = false
+    private var isEditMode = false
     
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
