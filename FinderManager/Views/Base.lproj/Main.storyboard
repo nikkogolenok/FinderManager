@@ -32,6 +32,18 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hG4-Vl-N8L">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="CUU-2V-TO7"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="HDk-Gx-ErR"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="NZ0-iI-STb"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Ila-oC-kHb"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="sDf-in-eyh"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="FLk-1K-V1w"/>
+                                    <barButtonItem image="trash" catalog="system" id="rON-9c-WHm"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -42,13 +54,22 @@
                             <constraint firstItem="UwK-OX-6lr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CTV-Ky-FPc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z86-JZ-TOd" secondAttribute="trailing" id="Ik4-Fs-dMY"/>
                             <constraint firstItem="UwK-OX-6lr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LFT-Ir-avF"/>
+                            <constraint firstItem="hG4-Vl-N8L" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="M7Z-4Y-s4c"/>
+                            <constraint firstItem="Z86-JZ-TOd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eDz-wq-YEX"/>
                             <constraint firstItem="Z86-JZ-TOd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="enH-0v-l9E"/>
+                            <constraint firstItem="hG4-Vl-N8L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="epl-c4-bmJ"/>
+                            <constraint firstItem="Z86-JZ-TOd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="n29-uP-tQF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hG4-Vl-N8L" secondAttribute="bottom" id="oCE-nv-XOH"/>
                             <constraint firstItem="Z86-JZ-TOd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rzd-BT-NBu"/>
+                            <constraint firstItem="Z86-JZ-TOd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yhL-xF-8ri"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Finder" id="e1z-r9-LPK"/>
+                    <navigationItem key="navigationItem" title="Finder" id="e1z-r9-LPK">
+                        <barButtonItem key="rightBarButtonItem" image="ellipsis.circle" catalog="system" style="done" id="fYI-zf-ein"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="UwK-OX-6lr" id="tx1-xk-Hae"/>
+                        <outlet property="saveButton" destination="fYI-zf-ein" id="wyJ-u1-hvv"/>
                         <outlet property="tableView" destination="Z86-JZ-TOd" id="yxD-E3-fdY"/>
                     </connections>
                 </viewController>
@@ -82,21 +103,24 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="Yk9-VC-7eO"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="yU1-pm-Pzq"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESs-rI-fVq" userLabel="Tapp to Share">
-                                <rect key="frame" x="139.5" y="789" width="135" height="23"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                <state key="normal" title=" Tapp to Share" image="square.and.arrow.up" catalog="system"/>
-                                <connections>
-                                    <action selector="shareAction:" destination="xQP-Dp-2HJ" eventType="touchUpInside" id="bqZ-kr-7lF"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skz-0y-M9t">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem image="square.and.arrow.up" catalog="system" id="6Wg-A0-FrS">
+                                        <connections>
+                                            <action selector="shareAction:" destination="xQP-Dp-2HJ" id="CpJ-Qt-zF6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oyW-vC-ZCI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oyW-vC-ZCI" firstAttribute="bottom" secondItem="ESs-rI-fVq" secondAttribute="bottom" constant="50" id="3pk-2H-zNM"/>
+                            <constraint firstItem="oyW-vC-ZCI" firstAttribute="bottom" secondItem="skz-0y-M9t" secondAttribute="bottom" id="7yt-rb-7rr"/>
                             <constraint firstItem="F1O-uS-M3L" firstAttribute="leading" secondItem="oyW-vC-ZCI" secondAttribute="leading" id="8LI-Ut-JcD"/>
-                            <constraint firstItem="ESs-rI-fVq" firstAttribute="centerX" secondItem="gwv-3M-vCg" secondAttribute="centerX" id="JFK-L8-J6X"/>
+                            <constraint firstItem="skz-0y-M9t" firstAttribute="trailing" secondItem="oyW-vC-ZCI" secondAttribute="trailing" id="ZR7-0g-dRk"/>
+                            <constraint firstItem="skz-0y-M9t" firstAttribute="leading" secondItem="oyW-vC-ZCI" secondAttribute="leading" id="tMM-Nq-TFd"/>
                             <constraint firstItem="F1O-uS-M3L" firstAttribute="top" secondItem="oyW-vC-ZCI" secondAttribute="top" id="wsr-1l-44j"/>
                             <constraint firstItem="F1O-uS-M3L" firstAttribute="centerX" secondItem="oyW-vC-ZCI" secondAttribute="centerX" id="xhp-Mn-XzM"/>
                             <constraint firstItem="F1O-uS-M3L" firstAttribute="centerY" secondItem="oyW-vC-ZCI" secondAttribute="centerY" id="zJP-iu-VMt"/>
@@ -110,6 +134,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqC-Jh-7HB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1513" y="58"/>
+        </scene>
+        <!--Finder-->
+        <scene sceneID="PJC-2T-tji">
+            <objects>
+                <viewController id="hrB-pQ-bET" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cpq-Hh-Ngt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zym-ws-wb6">
+                                <rect key="frame" x="0.0" y="756" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="xwe-00-paz"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="VhZ-5h-gWW"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="T6j-fT-6wg"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="CO3-jL-3sb"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="a9w-BN-4Bv"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="S4F-g4-m2O"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="3sJ-Pc-U8P"/>
+                                    <barButtonItem image="trash" catalog="system" id="EhO-t0-Kac"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aCA-AS-mWY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XaL-zf-Wnr"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Finder" id="YD1-9z-w7z"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yel-c0-WkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3273.913043478261" y="62.946428571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MjV-5T-vtN">
@@ -129,9 +189,29 @@
             </objects>
             <point key="canvasLocation" x="108.69565217391305" y="57.589285714285708"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rX1-aX-55s">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SFQ-Wb-ttU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Z2b-oC-1B4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hrB-pQ-bET" kind="relationship" relationship="rootViewController" id="XJa-UJ-XCp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wxg-FG-wRv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2363.768115942029" y="62.946428571428569"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

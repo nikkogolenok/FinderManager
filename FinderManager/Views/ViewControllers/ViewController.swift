@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -42,10 +43,12 @@ class ViewController: UIViewController {
         
         setUpTableView()
         setUpCollectionView()
-        addRightButtons()
+        //addRightButtons()
         
         updateFileSystemElements()
         upDateViewMode()
+        
+        saveButton.menu = addMenuItems()
     }
     
     // MARK: - Methods
@@ -66,18 +69,43 @@ class ViewController: UIViewController {
         collectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: ImageCollectionViewCell.id)
     }
     
-    private func menuItems() -> UIMenu {
+    private func addMenuItems() -> UIMenu {
         
         let menu = UIMenu(title: "Menu",
+                          image: UIImage(systemName: "ellipsis.circle"),
                           options: .displayInline,
                           children: [
-                            UIAction(title: "Add",
-                                     image: UIImage(systemName: "folder.fill.badge.plus"),
-                                     handler: { _ in
-                                         //self.tapToPlus()
-                                     })
+                            
+                            UIAction(title: "Выбрать",
+                                     image: UIImage(systemName: "checkmark.circle"),
+                                   handler: { (_) in
+                                       self.changeEditMode()
+                                   }),
+                          
+                            UIAction(title: "Новая папка",
+                                     image: UIImage(systemName: "folder.badge.plus"),
+                                   handler: { (_) in
+                                       self.createFinder()
+                                   }),
+                            
+                            UIAction(title: "Новая картинка",
+                                     image: UIImage(systemName: "photo.fill"),
+                                   handler: { (_) in
+                                       self.createImage()
+                                   }),
+                            
+                            UIAction(title: "Значки",
+                                     image: UIImage(systemName: "tablecells"),
+                                   handler: { (_) in
+                                       self.changeViewModeByCollection()
+                                   }),
+                            
+                            UIAction(title: "Список",
+                                     image: UIImage(systemName: "list.bullet"),
+                                   handler: { (_) in
+                                       self.changeViewModeByTableView()
+                                   })
                           ])
-        
         
         return menu
     }
@@ -274,6 +302,28 @@ class ViewController: UIViewController {
     @objc private func changeViewMode() {
         let selectedMode = UserDefaultsManager.shared.presentationMode
         let newMode: PresentationMode = selectedMode == .tableView ? .collectionView : .tableView
+        
+        UserDefaultsManager.shared.presentationMode = newMode
+        
+        modeButton?.image = UIImage(systemName: newMode.imageName)
+        
+        upDateViewMode()
+    }
+    
+    private func changeViewModeByCollection() {
+        let selectedMode = UserDefaultsManager.shared.presentationMode
+        let newMode: PresentationMode = .collectionView
+        
+        UserDefaultsManager.shared.presentationMode = newMode
+        
+        modeButton?.image = UIImage(systemName: newMode.imageName)
+        
+        upDateViewMode()
+    }
+    
+    private func changeViewModeByTableView() {
+        let selectedMode = UserDefaultsManager.shared.presentationMode
+        let newMode: PresentationMode = .tableView
         
         UserDefaultsManager.shared.presentationMode = newMode
         
