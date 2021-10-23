@@ -31,6 +31,8 @@ class ViewController: UIViewController {
     
     var url: URL?
     private var isEditMode = false
+    private let selectMode = true
+    private let cancelMode = false
     
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
@@ -79,7 +81,13 @@ class ViewController: UIViewController {
                             UIAction(title: "Выбрать",
                                      image: UIImage(systemName: "checkmark.circle"),
                                    handler: { (_) in
-                                       self.changeEditMode()
+                                       self.selectAction()
+                                   }),
+                            
+                            UIAction(title: "Отменить",
+                                     image: UIImage(systemName: "minus.circle"),
+                                   handler: { (_) in
+                                       self.cancelAction()
                                    }),
                           
                             UIAction(title: "Новая папка",
@@ -104,7 +112,14 @@ class ViewController: UIViewController {
                                      image: UIImage(systemName: "list.bullet"),
                                    handler: { (_) in
                                        self.changeViewModeByTableView()
-                                   })
+                                   }),
+                            
+                            UIAction(title: "Удалить",
+                                     image: UIImage(systemName: "minus.circle"),
+                                     handler: { (_) in
+                                         print("Delete")
+                                         self.deleteSelectedElements()
+                                     })
                           ])
         
         return menu
@@ -311,7 +326,6 @@ class ViewController: UIViewController {
     }
     
     private func changeViewModeByCollection() {
-        let selectedMode = UserDefaultsManager.shared.presentationMode
         let newMode: PresentationMode = .collectionView
         
         UserDefaultsManager.shared.presentationMode = newMode
@@ -322,7 +336,6 @@ class ViewController: UIViewController {
     }
     
     private func changeViewModeByTableView() {
-        let selectedMode = UserDefaultsManager.shared.presentationMode
         let newMode: PresentationMode = .tableView
         
         UserDefaultsManager.shared.presentationMode = newMode
@@ -330,6 +343,13 @@ class ViewController: UIViewController {
         modeButton?.image = UIImage(systemName: newMode.imageName)
         
         upDateViewMode()
+    }
+    
+    private func deleteSelectedElements() {
+        selectedElements.forEach { try? FileManager.default.removeItem(at: $0.url) }
+        
+        updateFileSystemElements()
+        changeEditMode()
     }
     
     @objc private func changeEditMode() {
@@ -342,6 +362,49 @@ class ViewController: UIViewController {
             tableView.reloadData()
             collectionView.reloadData()
         }
+    }
+    
+    
+    private func selectAction() {
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        
+        tableView.addGestureRecognizer(tapGesture)
+        tableView.isUserInteractionEnabled = true
+        collectionView.addGestureRecognizer(tapGesture)
+        collectionView.isUserInteractionEnabled = true
+        
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongTap(_:)))
+        
+        collectionView.addGestureRecognizer(longGesture)
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        print("Select")
+    }
+    
+    @objc func handleLongTap(_ longGesture: UITapGestureRecognizer) {
+        guard let collectionView = collectionView else { return }
+        
+        switch longGesture.state {
+        case .began:
+            guard let targetIndexPath = collectionView.indexPathForItem(at: longGesture.location(in: collectionView)) else { return }
+            
+            collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(longGesture.location(in: collectionView))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
+    }
+    
+    private func cancelAction() {
+        selectedElements.removeAll()
+        
+        tableView.reloadData()
+        collectionView.reloadData()
     }
 }
 
@@ -497,5 +560,14 @@ extension ViewController: UICollectionViewDataSource {
         cell.isSelected = selectedElements.contains(where: {$0 == element })
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = fileSystemElements.remove(at: sourceIndexPath.row)
+        fileSystemElements.insert(item, at: destinationIndexPath.row)
     }
 }

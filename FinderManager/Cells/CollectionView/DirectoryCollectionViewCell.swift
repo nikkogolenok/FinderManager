@@ -27,7 +27,7 @@ class DirectoryCollectionViewCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            backgroundColor = isSelected ? .yellow : .clear
+            backgroundColor = isSelected ? .gray : .clear
         }
     }
 }

@@ -30,6 +30,6 @@ class DirectoryTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: false)
         
-        backgroundColor = selected ? .yellow : .clear
+        backgroundColor = selected ? .gray : .clear
     }
 }
