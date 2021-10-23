@@ -23,6 +23,7 @@
 		445F3CF426F38D2F008AAED6 /* DirectoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445F3CF226F38D2F008AAED6 /* DirectoryCollectionViewCell.xib */; };
 		445F3CF726F8C7AF008AAED6 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F3CF526F8C7AF008AAED6 /* ImageCollectionViewCell.swift */; };
 		445F3CF826F8C7AF008AAED6 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445F3CF626F8C7AF008AAED6 /* ImageCollectionViewCell.xib */; };
+		448170C52724B50400EF52C6 /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448170C42724B50400EF52C6 /* SingInViewController.swift */; };
 		44E65EDA26FA1824003B6152 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E65ED926FA1824003B6152 /* UserDefaultsManager.swift */; };
 		44EE9CD82704FFAC00E388AD /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE9CD72704FFAC00E388AD /* ViewController+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		445F3CF226F38D2F008AAED6 /* DirectoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DirectoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		445F3CF526F8C7AF008AAED6 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		445F3CF626F8C7AF008AAED6 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		448170C42724B50400EF52C6 /* SingInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInViewController.swift; sourceTree = "<group>"; };
 		44E65ED926FA1824003B6152 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		44EE9CD72704FFAC00E388AD /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 		445F3CED26F2A811008AAED6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				448170C42724B50400EF52C6 /* SingInViewController.swift */,
 				445F3CCE26EFF5D9008AAED6 /* ViewController.swift */,
 				445F3CEE26F2A8A9008AAED6 /* ImageViewController.swift */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448170C52724B50400EF52C6 /* SingInViewController.swift in Sources */,
 				445F3CF326F38D2F008AAED6 /* DirectoryCollectionViewCell.swift in Sources */,
 				445F3CCF26EFF5D9008AAED6 /* ViewController.swift in Sources */,
 				445F3CCB26EFF5D9008AAED6 /* AppDelegate.swift in Sources */,
