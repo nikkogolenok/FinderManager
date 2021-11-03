@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dUH-Oh-lpQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k7q-FW-dEH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-OX-6lr">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j2Y-Lj-34V">
                                     <size key="itemSize" width="128" height="128"/>
@@ -29,7 +29,7 @@
                                 <cells/>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z86-JZ-TOd">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734.7826086956522" y="57.589285714285708"/>
+            <point key="canvasLocation" x="2644.9275362318845" y="57.589285714285708"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="o7J-4o-YZS">
@@ -118,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqC-Jh-7HB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.739130434783" y="57.589285714285708"/>
+            <point key="canvasLocation" x="3331.884057971015" y="57.589285714285708"/>
         </scene>
         <!--Sing In View Controller-->
         <scene sceneID="Sn4-gs-zty">
@@ -127,57 +127,17 @@
                     <view key="view" contentMode="scaleToFill" id="2DJ-0L-IHh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Finder" translatesAutoresizingMaskIntoConstraints="NO" id="88r-st-hDj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="430" id="fC8-Am-GLS"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEd-ka-I7N">
-                                <rect key="frame" x="0.0" y="430" width="414" height="466"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eSN-Iz-Jmd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kEd-ka-I7N" firstAttribute="top" secondItem="88r-st-hDj" secondAttribute="bottom" id="HDa-lc-HS0"/>
-                            <constraint firstItem="88r-st-hDj" firstAttribute="leading" secondItem="eSN-Iz-Jmd" secondAttribute="leading" id="IEq-fY-3fG"/>
-                            <constraint firstAttribute="bottom" secondItem="kEd-ka-I7N" secondAttribute="bottom" id="LCj-vm-mCa"/>
-                            <constraint firstAttribute="trailing" secondItem="88r-st-hDj" secondAttribute="trailing" id="Pei-bl-fsQ"/>
-                            <constraint firstItem="kEd-ka-I7N" firstAttribute="trailing" secondItem="eSN-Iz-Jmd" secondAttribute="trailing" id="W94-dw-gk2"/>
-                            <constraint firstItem="kEd-ka-I7N" firstAttribute="leading" secondItem="eSN-Iz-Jmd" secondAttribute="leading" id="iMu-td-T9t"/>
-                            <constraint firstItem="88r-st-hDj" firstAttribute="top" secondItem="2DJ-0L-IHh" secondAttribute="top" id="je3-ej-DYa"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U0g-T8-DGz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ML-wO-gv0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123" y="58"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="MjV-5T-vtN">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dUH-Oh-lpQ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Ezb-cu-2VW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4iq-Ce-iqU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P14-o0-UxE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1018.840579710145" y="57.589285714285708"/>
+            <point key="canvasLocation" x="1031.8840579710145" y="57.589285714285708"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Finder" width="740" height="422"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
