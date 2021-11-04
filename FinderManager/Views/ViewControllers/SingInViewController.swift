@@ -48,7 +48,10 @@ class SingInViewController: UIViewController {
                     guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? ViewController else { return }
                     viewController.modalPresentationStyle = .fullScreen
                     
-                    self?.present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
+                    let navigationController = UINavigationController(rootViewController: viewController)
+                    navigationController.modalPresentationStyle = .fullScreen
+                    
+                    self?.present(navigationController, animated: true, completion: nil)
                 }
                 
             }
